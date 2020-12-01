@@ -1,0 +1,29 @@
+<h1 class="display-5 text-center">Student Details</h1>
+<div> </div>
+ 
+<table class="table table-hover student-details-table-width">
+    <thead align ="center">
+        <th>Roll No.</th>
+        <th>Name</th>
+        <th>SurName</th>
+        <th>Branch Name</th>
+        <th>Guardian Phone No.</th>
+        <th>Edit?</th>
+        <th>Delete?</th>
+    </thead>
+    <tbody align ="center">
+        <tr *ngFor="let studentInfo of studentList">
+            <td>{{studentInfo.rollNo}}<span>.</span></td>
+            <td>{{studentInfo.name}}</td>
+            <td>{{studentInfo.surName}}</td>
+            <td>{{studentInfo.branchName}}</td>
+            <td>{{studentInfo.guardianPhoneNo}}</td>
+            <td><a class="btn text-warning" (click)="onEdit(studentInfo)"><i class="fa fa-edit" title="Edit"></i></a></td>
+            <td><a class="btn text-danger" (click)="onDelete(studentInfo)"><i class="fa fa-trash" title="Delete"></i></a></td>
+        </tr>
+    </tbody>
+</table>
+ 
+<div class="error" *ngIf="deleteMessage">
+    <h5 class="text-dark">{{ deleteMessage }}</h5>
+</div>
